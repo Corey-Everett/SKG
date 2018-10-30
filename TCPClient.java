@@ -5,7 +5,7 @@ import java.io.*;
 public class TCPClient {
 	public static void main(String args[]) throws IOException {
 		System.out.println("client running");
-		// Open your connection to a server, at port 6789  
+		// Open your connection to a server, at port 6789
 		Socket socket = new Socket("10.200.78.42",6789); 
 		
 		BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));

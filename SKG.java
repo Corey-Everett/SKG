@@ -4,7 +4,8 @@ package SKG;
  * 
  */
 public class SKG {
-	public static void main (String args[]) {
-		//to do
+	public static void main(String args[]) {
+		TCPClient();
+		TCPServer();
 	}
 }
