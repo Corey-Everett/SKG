@@ -6,7 +6,7 @@ public class TCPClient {
 	public static void main(String args[]) throws IOException {
 		System.out.println("client running");
 		// Open your connection to a server, at port 6789
-		Socket socket = new Socket("127.0.0.1",12001); 
+		Socket socket = new Socket("10.200.78.42",6789); 
 		
 		BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
 		// Get an input file handle from the socket and read the input
@@ -23,7 +23,7 @@ public class TCPClient {
 		
 		while (true) {
 			sentMessage = bufferedReader.readLine();
-			printWriter.println("Client says: " + sentMessage);
+			printWriter.println(sentMessage);
 			printWriter.flush();
 			
 			if (sentMessage.equals("end")) {
@@ -37,7 +37,7 @@ public class TCPClient {
 			
 			if ((receivedMessage = received.readLine())!=null) {
 			
-				System.out.println(receivedMessage);
+				System.out.println("Server says: " + receivedMessage);
 				
 			}
 			
