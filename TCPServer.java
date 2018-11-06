@@ -1,6 +1,7 @@
 package skgLocal;
 
 import java.net.*;
+import java.util.Scanner;
 import java.io.*;
 import java.lang.reflect.Array;
 
@@ -8,7 +9,19 @@ import java.lang.reflect.Array;
 public class TCPServerLocal {
 	public static void main(String args[]) throws IOException {
 	
-		String[] testArray = new String[5000];
+		String inputFileName;
+		String outputFileName;
+		
+		
+		
+//		try (
+//			
+//			PrintWriter fout = new PrintWriter(new File(outputFileName));) {		
+//			process(fin, fout);
+//		}
+//		catch (FileNotFoundException ex) {
+//			System.out.printf("file not found");
+//		}
 		
 		
 		
@@ -36,33 +49,76 @@ public class TCPServerLocal {
 		int count = 0;
 		
 		while (true) {
-		
-			
 			
 			if ((receivedMessage = received.readLine())!=null) {
 				
-				System.out.println("Client says: " + receivedMessage);
+				System.out.println("Client typed: " + receivedMessage);
 				
-				testArray[count] = receivedMessage;
-				count = count + 1;
-				
-				
-				
-				sentMessage = bufferedReader.readLine();
-				printWriter.println(sentMessage);
-				printWriter.flush();
-				
-				if (sentMessage.equals("end")) {
-					System.out.println(testArray[0]);
-					System.out.println(testArray[1]);
-					System.out.println(testArray[2]);
-					System.out.println(testArray[3]);
-					socket.close();
-					serverSocket.close();
-					System.exit(1);								
+				if (receivedMessage.toLowerCase().equals("help")) { //if the client types help, the server sends back valid commands
+					sentMessage = "Command received. Valid commands are: help, create, lookup";
+					printWriter.println(sentMessage);
+					printWriter.flush();					
+					
 				}
+				
+				else if (receivedMessage.toLowerCase().equals("create")) { //if the client types create, the server sends back instructions on how to write a review
+					sentMessage = "Command received. Tell me the game you want to review";
+					printWriter.println(sentMessage);
+					printWriter.flush();
+					receivedMessage = received.readLine();
+					System.out.println("Client typed: " + receivedMessage);
+					sentMessage = "Command received. Write your review now";
+					printWriter.println(sentMessage);
+					printWriter.flush();
+					receivedMessage = received.readLine();
+					System.out.println("Client typed: " + receivedMessage);
+					sentMessage = "Review Received. Thank you.";
+					printWriter.println(sentMessage);
+					printWriter.flush();
+					
+					
+				}
+				
+				else if (receivedMessage.toLowerCase().equals("lookup")) { //if the client types lookup, the server sends back instructions on how to lookup a game
+					sentMessage = "Command received. Tell me the game you want to look up";
+					printWriter.println(sentMessage);
+					printWriter.flush();
+					receivedMessage = received.readLine();
+					System.out.println("Client typed: " + receivedMessage);
+					sentMessage = "Command received. Here are the results for " + receivedMessage;
+					printWriter.println(sentMessage);
+					printWriter.flush();
+					sentMessage = "Results: (nothing so far)";
+					printWriter.println(sentMessage);
+					printWriter.flush();
+					
+									
+				}
+				
+//				if (sentMessage.toLowerCase().equals("end")) {		
+//					System.out.println("Ending server");
+//							
+//					socket.close();
+//					serverSocket.close();
+//					System.exit(1);								
+//				}
+				
+				else {
+					sentMessage = "Please type \"help\" because you need help";
+					printWriter.println(sentMessage);
+					printWriter.flush();
+				}
+				
 				
 			}		
 		}	
+	}
+	
+	public static void process(Scanner input, PrintWriter output) {
+		// TODO: write your code here
+		output.printf("test");
+		
+		
+		
 	}
 }
