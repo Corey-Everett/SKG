@@ -22,11 +22,11 @@ public class TCPClient {
 		
 		System.out.println("Client:Type a word");
 		String receivedMessage = ""; 
-		String sentMessage = "";
+		String sentMessage = ""; 
 		
 		while (true) {
 			sentMessage = bufferedReader.readLine();
-			printWriter.println(sentMessage);
+			printWriter.println(sentMessage); 
 			printWriter.flush();
 			
 			// End the program when message input is "end"
