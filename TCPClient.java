@@ -1,5 +1,10 @@
-package TCP;
+// Name: SKG Software Development Team. Corey Everett, Michael Marino, Zach Rosa
+// Date of Completion: November 5th, 2018
+// Program: SKG TCP Client
+// Purpose: This is the "end-user" program which the client uses to interact with the SKG Microtransaction Software server. The
+// client can input several commands.
 
+package skgLocal;
 import java.net.*;
 import java.io.*;
 public class TCPClient {
@@ -15,38 +20,20 @@ public class TCPClient {
 		InputStream inputStream = socket.getInputStream();
 		BufferedReader received = new BufferedReader(new InputStreamReader(inputStream));
 		
-		
 		System.out.println("Client:Type a word");
 		String receivedMessage = "";
 		String sentMessage = "";
-		
 		
 		while (true) {
 			sentMessage = bufferedReader.readLine();
 			printWriter.println(sentMessage);
 			printWriter.flush();
 			
-			if (sentMessage.equals("end")) {
-				
-				socket.close();
-				
-				System.exit(1);
-				
-			}
-			
-			
-			if ((receivedMessage = received.readLine())!=null) {
-			
-				System.out.println("Server says: " + receivedMessage);
-				
-			}
+			// End the program when message input is "end"
+			if (sentMessage.equals("end")) {socket.close(); System.exit(1);	}
+			// When a message is received from the server, show to client.
+			if ((receivedMessage = received.readLine())!=null) {System.out.println("Server says: " + receivedMessage);}	 
 			
 		}
-//		DataInputStream dataInputStream = new DataInputStream(inputStream);
-//		String sentence = new String (dataInputStream.readUTF());
-//		System.out.println(sentence);
-//		// When done, just close the connection and exit
-		
-
 	}
 }
