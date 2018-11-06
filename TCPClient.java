@@ -21,7 +21,7 @@ public class TCPClient {
 		BufferedReader received = new BufferedReader(new InputStreamReader(inputStream));
 		
 		System.out.println("Client:Type a word");
-		String receivedMessage = ""; 
+		String receivedMessage = "";  
 		String sentMessage = ""; 
 		
 		while (true) {
