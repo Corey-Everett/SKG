@@ -7,7 +7,7 @@
 package skgLocal;
 import java.net.*;
 import java.io.*;
-public class TCPClient {
+public class TCPClient { 
 	public static void main(String args[]) throws IOException {
 		System.out.println("client running");
 		// Open your connection to a server, at port 6789
