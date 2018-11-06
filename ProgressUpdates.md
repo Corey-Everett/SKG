@@ -20,3 +20,7 @@ What did your team do last week? – Last week, we made it so the program could 
 What will your team do this week? We intend to have a file in which information can be stored regarding games and such, and figure out how best to read the file and store/delete information within. 
 
 Any blocking issues/challenges that need to be addressed? Currently, we are unable to provide storage permeance; The information disappears as the server does. Debate on data structures. Importing from GitHub required a workaround. Better completion will involve becoming more familiar with GitHub itself and how to pull/push our software effectively. Currently, we are also unable to implement several of the concepts required for the program’s completion, which will require further study. Namely, we are still working on the GUI, the file from which the server will gather info from, and many of the functions that will make this program work.
+
+# Comments
+1. Revise this following the ProgressUpdates.md template for better look and formatting
+2. Better organize the source code (put them in separate folders like how the code gets organized in Java)
