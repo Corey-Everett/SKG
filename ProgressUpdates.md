@@ -39,5 +39,5 @@
 * Figuring out how to implement GUI into our program
 
 # Comments
-1. Revise this following the ProgressUpdates.md template for better look and formatting
+1. Revise this following the ProgressUpdates.md template for better look and formatting - resolved
 2. Better organize the source code (put them in separate folders like how the code gets organized in Java)
