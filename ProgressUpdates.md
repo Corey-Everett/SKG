@@ -1,4 +1,4 @@
-<b>Weekly Progress Update #1 – October 29th, 2018</b>
+<b><title>Weekly Progress Update #1 – October 29th, 2018</title></b>
 
 What did your team do last week? – We incorporated and spoke about what we would need to do to complete the program, creating 
 the outline for a successful completion; a weekly meeting on Monday and in-person testing.
