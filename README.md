@@ -15,9 +15,14 @@ By creating a back-and-forth server/client system, we can create a library of ga
 
 # Deliverables 
 1. Github SKG repository
-2. Client/Server software
-3. GUI
-4. Presentation
+
+2. Server Software
+  -
+3. Client Software
+  -Give users options to either create or lookup reviews for games (implementing a GUI to make it look prettier)
+4. GUI
+  -Create a presentable GUI that is easy to use and allows the users to lookup and create reviews for any game.
+5. Presentation
 
 # Plan
 * Week 1 (October 29th 7-9pm):
