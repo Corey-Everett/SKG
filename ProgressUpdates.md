@@ -38,6 +38,27 @@
 * Understanding how to use GitHub properly (pushing and pulling)
 * Figuring out how to implement GUI into our program
 
+## Week 3 (Nov 12 - Nov 19)
+
+### What did your team do last week?
+* We incorporated and spoke about what we would need to do to complete the program
+* Worked on server/client methods.
+* Agreed upon a weekly meeting on Monday and Wednesday every week until the end of the term.
+
+### What will you do this week? 
+* We intend to continue working on storing information
+* Figure out the logistics  behind a GUI model for client and server.
+* Figure out how to have the client type multiple commands.
+* Determine the exact functions of our program 
+* Find out how it will interpret the information we give it
+
+### Any blocking issues/challenges that need to be addressed? 
+* Unable to provide storage permeance; 
+* Information is not stored after the server is closed.
+* Data structures.
+* Unable to implement several of the concepts required for our program.
+* Server only completes one command before exiting so far.
+
 # Comments
 1. Revise this following the ProgressUpdates.md template for better look and formatting - resolved
 2. Better organize the source code (put them in separate folders like how the code gets organized in Java)
