@@ -17,7 +17,7 @@ By creating a back-and-forth server/client system, we can create a library of ga
 1. Github SKG repository
 
 2. Server Software
-  -
+  -A server that allows multiple clients to connect to it. It presents a GUI that is easy to use and allows clients to create or lookup a review for a game.
 3. Client Software
   -Give users options to either create or lookup reviews for games (implementing a GUI to make it look prettier)
 4. GUI
