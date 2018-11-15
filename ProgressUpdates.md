@@ -1,4 +1,4 @@
-# Progress Updates (Oct 29th - Nov 30)
+# Progress Updates (Oct 29 - Nov 30)
 
 ## Week 1 (Oct 29 - Nov 5)
 
@@ -58,6 +58,23 @@
 * Data structures.
 * Unable to implement several of the concepts required for our program.
 * Server only completes one command before exiting so far.
+
+## Week 4 (Nov 13 - Nov 20)
+
+### What did your team do last week?
+* Worked on client methods, like create, help and lookup. 
+
+### What will you do this week? 
+* We intend to continue working on storing information. Namely, how to store games and reviews for them. 
+* Figure out the logistics behind a GUI model for client and server.
+* Figure out how to have the client type multi-part commands, or else consolidate into a single command for each.
+* Determine the exact functions of our program. Server and client commands still unclear.
+* Find out how it will interpret the information we give it
+
+### Any blocking issues/challenges that need to be addressed? 
+* Data structures.
+* Features unimplemented; Proper storage, GUI, all commands, for both client and server.
+* Server still cannot complete multi-part commands.
 
 # Comments
 1. Revise this following the ProgressUpdates.md template for better look and formatting - resolved
