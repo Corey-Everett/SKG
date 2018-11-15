@@ -23,6 +23,7 @@ By creating a back-and-forth server/client system, we can create a library of ga
 4. GUI
   -Create a presentable GUI that is easy to use and allows the users to lookup and create reviews for any game.
 5. Presentation
+  -Our expectations for this presentation is to deliver a working program that has a server and client communicating with each other. It should also explain the importance of understanding how the companies can try and trick you into buying a "incomplete" game where you must use more money to recieve extra perks.
 
 # Plan
 * Week 1 (October 29th 7-9pm):
