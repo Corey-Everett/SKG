@@ -76,6 +76,22 @@
 * Features unimplemented; Proper storage, GUI, all commands, for both client and server.
 * Server still cannot complete multi-part commands.
 
+## Week 5 (Nov 20 - Nov 27)
+
+### What did your team do last week?
+* Worked on client methods, like create, help and lookup.
+* Got to implementing create, and fixing data storage issues.
+
+### What will you do this week? 
+* We intend to continue working on storing information. Namely, how to store games and reviews for them. 
+* Figure out the logistics behind a GUI model for client and server.
+* Determine the exact functions of our program. Server and client commands still unclear.
+* Think of doing a GUI model, once program is otherwise completed.
+
+### Any blocking issues/challenges that need to be addressed? 
+* Data structures - storage and manipulation of info.
+* Features unimplemented; Proper storage, GUI, all commands, for both client and server.
+
 # Comments
 1. Revise this following the ProgressUpdates.md template for better look and formatting - resolved
 2. Better organize the source code (put them in separate folders like how the code gets organized in Java)
