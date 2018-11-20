@@ -8,12 +8,12 @@ import java.net.*;
 import java.util.Scanner; 
 
 //Client class 
-public class Client  
-{ 
- public static void main(String[] args) throws IOException  
- { 
-     try
-     { 
+public class Client {  
+
+ public static void main(String[] args) throws IOException { 
+  
+     try {
+      
          Scanner scn = new Scanner(System.in); 
            
          // getting localhost ip 
@@ -28,22 +28,15 @@ public class Client
    
          // the following loop performs the exchange of 
          // information between client and client handler 
-         while (true)  
-         { 
+         while (true) { 
+          
              System.out.println(dis.readUTF()); 
              String tosend = scn.nextLine(); 
              dos.writeUTF(tosend); 
-               
-             // If client sends exit,close this connection  
-             // and then break from the while loop 
-             if(tosend.equals("Exit")) 
-             { 
-                 System.out.println("Closing this connection : " + s); 
-                 s.close(); 
-                 System.out.println("Connection closed"); 
-                 break; 
-             } 
-               
+                
+             // If client sends exit, this line of code closes the connection and then breaks from the while loop.
+             if(tosend.equals("Exit")) {System.out.println("Closing this connection : " + s); s.close(); System.out.println("Connection closed");break;}    
+             
              // printing 
              String received = dis.readUTF(); 
              System.out.println(received); 
@@ -52,10 +45,9 @@ public class Client
          // closing resources 
          scn.close(); 
          dis.close(); 
-         dos.close(); 
-     }catch(Exception e){ 
-         e.printStackTrace(); 
-     } 
+         dos.close();
+         
+     }catch(Exception e) {e.printStackTrace();}  // Last-second error-catch.
+          
  } 
 } 
-
