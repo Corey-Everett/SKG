@@ -83,14 +83,24 @@ class ClientHandler extends Thread {
         
             try { 
             	// Ask user what he wants 
-                dos.writeUTF("Enter a command.");
-                  
-                // receive the answer from client 
+                dos.writeUTF("Enter a command. Type \"help\" to see valid commands.");
+                 
+                // receive the input from client 
                 received = dis.readUTF(); 
                       		                                                                                                           
                 System.out.println("A client said: " + received); //prints out what each client types to the Server's console
-                     
-                    if(received.toLowerCase().equals("exit")) //if the client types in exit, their client will exit (not the server)
+                    
+                	if (received.length() == 0 || received.length() == 1 || received.length() == 2 || received.length() == 3) {
+                		dos.writeUTF("Please type \"help\" because you need help");
+                	}
+                	else if (received.toLowerCase().substring(0,4).equals("help")) { //if the client types help, the server sends back valid commands
+    					dos.writeUTF("Command \"help\" received. Valid commands are: create <Name of Game>|<Full Review - create a review. lookup <Name of Game>- lookup a review. exit- exit program");
+    					
+    				}               	
+                    else if (received.length() == 5) {  //catches more invalid commands
+                    	dos.writeUTF("Please type \"help\" because you need help");
+                    }
+                	else if(received.toLowerCase().equals("exit")) //if the client types in exit, their client will exit (not the server)
                     {  
                         System.out.println("Client " + this.s + " sends exit..."); 
                         System.out.println("Closing this connection."); 
@@ -98,24 +108,19 @@ class ClientHandler extends Thread {
                         System.out.println("Connection closed"); 
                         break; 
                     } 
-                    else if (received.length() < 4) {  //catches invalid commands
-                    	dos.writeUTF("Please type \"help\" because you need help");
-                    }
-                    else if (received.length() == 5) {  //catches more invalid commands
-                    	dos.writeUTF("Please type \"help\" because you need help");
-                    }
-                    else if (received.toLowerCase().substring(0,4).equals("help")) { //if the client types help, the server sends back valid commands
-    					dos.writeUTF("Command \"help\" received. Valid commands are: create <Name of Game>|<Full Review - create a review. lookup <Name of Game>- lookup a review. exit- exit program");
-    					
-    				}
-    				//if the client types create, the server sends back instructions on how to write a review
-    				else if (received.toLowerCase().substring(0,6).equals("create")) { 
+                	else if (received.length() == 4) {
+                		dos.writeUTF("Please type \"help\" because you need help");
+                	}
+                	
+                	//if the client types create, the server sends back instructions on how to write a review
+                    else if (received.toLowerCase().substring(0,6).equals("create")) {  
     					
     					// This section of code prints the gameName and review variables, and instantiates them.
     					   					   					
     					if (received.indexOf('|') != -1) {
     						
-    					String gameName = received.substring(6, received.indexOf('|'));
+    					String gameName = received.substring(7, received.indexOf('|'));
+    					gameName = gameName.toLowerCase();
     					String review = received.substring(received.indexOf('|')+ 1, received.length());    					   			
     					File file = new File("C:\\Users\\marinom1\\eclipse-workspace\\Microtransactions Ratings System\\src\\reviewedGames");
     					FileWriter writer = new FileWriter(file, true); //the true here makes it so the writer will not overwrite old data
@@ -129,17 +134,68 @@ class ClientHandler extends Thread {
     					dos.writeUTF("Improper syntax. create command syntax is create <Name of Game>|<Full Review>");
     					}
     				}
-    				else if (received.toLowerCase().equals("lookup")) { //if the client types lookup, the server sends back instructions on how to lookup a game
-    					dos.writeUTF("Command \"lookup\" received. Tell me the game you want to look up");
+                    else if (received.toLowerCase().substring(0,6).equals("lookup")) { //if the client types lookup, the server sends back instructions on how to lookup a game
+    					if (received.length() == 6) { //if the client types in lookup but without a game
+    						dos.writeUTF("Improper syntax. lookup command syntax is lookup <gameName>");
+    					}
+    					else {
+    						String gameName = received.substring(7, received.length());
+        					gameName = gameName.toLowerCase();
+        					String gameReview = "\n";
+        					String x = "";       					
+        					
+        					File file = new File("C:\\Users\\marinom1\\eclipse-workspace\\Microtransactions Ratings System\\src\\reviewedGames");
+        					Scanner fileScanner = new Scanner(file);
+        					
+        					while (fileScanner.hasNextLine()) {
+        						x = fileScanner.nextLine();
+        						
+        						if (x.length() < gameName.length()) {
+        							
+        						}
+        						
+        						else if (x.substring(0, gameName.length()).equals(gameName) && x.charAt(gameName.length()) == (':')) { //if x is a review for the game
+        							
+        							gameReview = gameReview + "\n"+ x;
+        						}        						       						        						       						
+        					}
+        					System.out.println(gameReview);
+        					if (gameReview.equals("\n")) {
+        						dos.writeUTF("There are no reviews for this game. You can make the first by typing \"create\"");
+        					}
+        					else {
+        						dos.writeUTF("Command \"lookup\" received. Showing existing reviews for " + gameName + ": " +
+        	        					gameReview + "\n");
+        					}
+        					
+        					
+        					
+    					}
+    					
     					
     				}
+                    else if (received.toLowerCase().substring(0,7).equals("lookall")) {
+                    	String x = "";
+                    	System.out.println("should see this");
+                    	
+                    	File file = new File("C:\\Users\\marinom1\\eclipse-workspace\\Microtransactions Ratings System\\src\\reviewedGames");
+    					Scanner fileScanner = new Scanner(file);
+    					while (fileScanner.hasNextLine()) {
+    						x = x + fileScanner.nextLine();
+    						x = x + "\n";
+    					}
+    					dos.writeUTF("All the game reviews: \n" + x);
+                    }
+                    
+                    
     				
+    				   				   				
     				else {dos.writeUTF("Please type \"help\" because you need help");} // Case for if the user doesn't type a valid command.
                                                               
                     // write on output stream based on the 
                     // answer from the client 
                                
-            } catch (IOException e) {e.printStackTrace();} // Catch exception for file input/output.
+            } catch (IOException e) {e.printStackTrace();} // Catch exception
         } 
           
         try { 

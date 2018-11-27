@@ -35,7 +35,11 @@ public class Client {
              dos.writeUTF(tosend); 
                 
              // If client sends exit, this line of code closes the connection and then breaks from the while loop.
-             if(tosend.equals("Exit")) {System.out.println("Closing this connection : " + s); s.close(); System.out.println("Connection closed");break;}    
+             if(tosend.toLowerCase().equals("exit")) {System.out.println("Closing this connection : " + s); s.close(); 
+             System.out.println("Connection closed");
+             System.exit(0);
+             break;
+             }    
              
              // printing 
              String received = dis.readUTF(); 
