@@ -6,6 +6,13 @@ package MicrotransactionsPackage;
 import java.io.*; 
 import java.text.*; 
 import java.util.*;
+import javafx.application.Application;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.layout.StackPane;
+import javafx.stage.Stage;
 
 import MicrotransactionsPackage.ClientHandler;
 
@@ -78,8 +85,9 @@ class ClientHandler extends Thread {
   
     @Override
     public void run() {          	
-        String received;                          
-        while (true) {   
+        String received;       
+        int connection = 1;
+        while (connection == 1) {   
         
             try { 
             	// Ask user what he wants 
@@ -94,7 +102,7 @@ class ClientHandler extends Thread {
                 		dos.writeUTF("Please type \"help\" because you need help");
                 	}
                 	else if (received.toLowerCase().substring(0,4).equals("help")) { //if the client types help, the server sends back valid commands
-    					dos.writeUTF("Command \"help\" received. Valid commands are: create <Name of Game>|<Full Review - create a review. lookup <Name of Game>- lookup a review. exit- exit program");
+    					dos.writeUTF("Command \"help\" received. Valid commands are: create <Name of Game>|<Full Review - create a review. lookup <Name of Game>- lookup a review. lookall- view all reviews. exit- exit program");
     					
     				}               	
                     else if (received.length() == 5) {  //catches more invalid commands
@@ -159,9 +167,9 @@ class ClientHandler extends Thread {
         							gameReview = gameReview + "\n"+ x;
         						}        						       						        						       						
         					}
-        					System.out.println(gameReview);
+        				
         					if (gameReview.equals("\n")) {
-        						dos.writeUTF("There are no reviews for this game. You can make the first by typing \"create\"");
+        						dos.writeUTF("There are no reviews for this game. You can make the first by using the \"create\" command");
         					}
         					else {
         						dos.writeUTF("Command \"lookup\" received. Showing existing reviews for " + gameName + ": " +
@@ -174,9 +182,12 @@ class ClientHandler extends Thread {
     					
     					
     				}
+                    else if (received.length() == 6) {
+                    	dos.writeUTF("Please type \"help\" because you need help");
+                    }
                     else if (received.toLowerCase().substring(0,7).equals("lookall")) {
                     	String x = "";
-                    	System.out.println("should see this");
+                    	
                     	
                     	File file = new File("C:\\Users\\marinom1\\eclipse-workspace\\Microtransactions Ratings System\\src\\reviewedGames");
     					Scanner fileScanner = new Scanner(file);
@@ -195,7 +206,11 @@ class ClientHandler extends Thread {
                     // write on output stream based on the 
                     // answer from the client 
                                
-            } catch (IOException e) {e.printStackTrace();} // Catch exception
+            } catch (IOException e) {
+            	connection = -1;
+            	System.out.println("a client hit the red button");
+            //	e.printStackTrace();
+            } // Catch exception
         } 
           
         try { 
