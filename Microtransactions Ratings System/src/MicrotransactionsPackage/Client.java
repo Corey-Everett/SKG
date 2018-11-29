@@ -6,12 +6,44 @@ package MicrotransactionsPackage;
 import java.io.*; 
 import java.net.*; 
 import java.util.Scanner; 
+import javafx.application.Application; 
+import javafx.stage.Stage;
+import javafx.scene.Scene;
+import javafx.scene.layout.*;  // HBox class in here
+import javafx.scene.image.ImageView; 
+import javafx.geometry.Insets;
 
 //Client class 
-public class Client {  
+public class Client extends Application {  
+	
+	public void start(Stage primaryStage) 
+	{
+		// create images
+		ImageView image1 = new ImageView("skglogo.png");
+		
+
+		// create pane
+		HBox p = new HBox(50);
+		
+		// add spacing around images
+		p.setPadding(new Insets(30));
+
+		// place images on pane
+		p.getChildren().addAll(image1);
+		
+		// create scene and place pane on it
+		Scene s = new Scene(p);
+
+		// place pane on stage
+		primaryStage.setTitle("Welcome to SKG's Game Rating System!");
+        primaryStage.setScene(s);
+     	primaryStage.show();
+	}
 
  public static void main(String[] args) throws IOException { 
-  
+	 launch(args);
+	 
+	 
      try {
       
          Scanner scn = new Scanner(System.in); 

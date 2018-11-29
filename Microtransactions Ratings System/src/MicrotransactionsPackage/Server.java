@@ -6,13 +6,12 @@ package MicrotransactionsPackage;
 import java.io.*; 
 import java.text.*; 
 import java.util.*;
-import javafx.application.Application;
-import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.layout.StackPane;
+import javafx.application.Application; 
 import javafx.stage.Stage;
+import javafx.scene.Scene;
+import javafx.scene.layout.*;  // HBox class in here
+import javafx.scene.image.ImageView; 
+import javafx.geometry.Insets;
 
 import MicrotransactionsPackage.ClientHandler;
 
@@ -21,8 +20,12 @@ import java.net.*;
 // Server class 
 public class Server {  
 
+	
+	
     public static void main(String[] args) throws IOException { 
-     
+    	
+    	
+    	
     	// Server startup; Instantiate and declare file.
     	System.out.println("Server Running");
     	File file = new File("C:\\Users\\marinom1\\eclipse-workspace\\Microtransactions Ratings System\\src\\reviewedGames");
@@ -129,7 +132,9 @@ class ClientHandler extends Thread {
     						
     					String gameName = received.substring(7, received.indexOf('|'));
     					gameName = gameName.toLowerCase();
-    					String review = received.substring(received.indexOf('|')+ 1, received.length());    					   			
+    					String review = received.substring(received.indexOf('|')+ 1, received.length());    	
+    					char rating = review.charAt(review.length()-1);
+    					System.out.println(rating);
     					File file = new File("C:\\Users\\marinom1\\eclipse-workspace\\Microtransactions Ratings System\\src\\reviewedGames");
     					FileWriter writer = new FileWriter(file, true); //the true here makes it so the writer will not overwrite old data
     					
@@ -158,13 +163,18 @@ class ClientHandler extends Thread {
         					while (fileScanner.hasNextLine()) {
         						x = fileScanner.nextLine();
         						
-        						if (x.length() < gameName.length()) {
+        						if (x.length() < gameName.length()) { //eror catching if an x review is shorter than a gamename
         							
         						}
         						
         						else if (x.substring(0, gameName.length()).equals(gameName) && x.charAt(gameName.length()) == (':')) { //if x is a review for the game
         							
         							gameReview = gameReview + "\n"+ x;
+        							
+        							//these lines of code will pop up a picture of the game
+        							
+        							
+        							
         						}        						       						        						       						
         					}
         				
@@ -196,6 +206,18 @@ class ClientHandler extends Thread {
     						x = x + "\n";
     					}
     					dos.writeUTF("All the game reviews: \n" + x);
+                    }
+                    else if (received.toLowerCase().substring(0,7).equals("ratings")) {
+                    	String x = "";
+                    	
+                    	
+                    	File file = new File("C:\\Users\\marinom1\\eclipse-workspace\\Microtransactions Ratings System\\src\\reviewedGames");
+    					Scanner fileScanner = new Scanner(file);
+    					while (fileScanner.hasNextLine()) {
+    						x = x + fileScanner.nextLine();
+    						x = x + "\n";
+    					}
+    					dos.writeUTF("All the game ratings: \n" + x);
                     }
                     
                     
