@@ -40,7 +40,6 @@ By creating a back-and-forth server/client system, we can create a library of ga
 - Finish project and have a presentable version of it.
 
 # Team Members 
-
 * Corey Everett, Administrator/Creator, Tester
 * Michael Marino, Coder, Tester
 * Zack Rosa, Coder, Tester
@@ -49,11 +48,11 @@ By creating a back-and-forth server/client system, we can create a library of ga
 Install
 - Download Client.java
 - Input IP of the server on line 22
+
 Run
 -Run the program and type in a command to create or lookup a review for a game.
 
 # Features
-
 Our program lets multiple clients connect to a server to either create a review for a game, lookup a review for a specific game, or lookup a review for every game that has a review. The games are stored in a text file which allows the server to store them permanently and display the reviews written by the clients if the client requests it.
 
 # Demo Video  
