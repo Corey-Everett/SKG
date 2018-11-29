@@ -54,7 +54,7 @@ By creating a back-and-forth server/client system, we can create a library of ga
 
 # Features
 
-Our program lets multiple clients connect to a server and either create a review for a game, lookup a review for a specific game, or lookup a review for every game that has a review. The games are stored in a text file which allows the server to store them permanently and display the reviews written by the clients if the client requests it.
+Our program lets multiple clients connect to a server to either create a review for a game, lookup a review for a specific game, or lookup a review for every game that has a review. The games are stored in a text file which allows the server to store them permanently and display the reviews written by the clients if the client requests it.
 
 # Demo Video  
 
