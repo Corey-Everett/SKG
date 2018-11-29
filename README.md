@@ -46,10 +46,10 @@ By creating a back-and-forth server/client system, we can create a library of ga
 * Zack Rosa, Coder, Tester
 
 # Getting Started
-* Install
+Install
 - Download Client.java
 - Input IP of the server on line 22
-* Run
+Run
 -Run the program and type in a command to create or lookup a review for a game.
 
 # Features
