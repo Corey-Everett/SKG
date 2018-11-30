@@ -81,6 +81,7 @@
 ### What did your team do last week?
 * Worked on client methods, like create, help and lookup.
 * Got to implementing create, and fixing data storage issues.
+* Started on a
 
 ### What will you do this week? 
 * We intend to continue working on storing information. Namely, how to store games and reviews for them. 
@@ -89,8 +90,7 @@
 * Think of doing a GUI model, once program is otherwise completed.
 
 ### Any blocking issues/challenges that need to be addressed? 
-* Data structures - storage and manipulation of info.
-* Features unimplemented; Proper storage, GUI, all commands, for both client and server.
+* Features unimplemented; Functional GUI for both client and server.
 
 # Comments
 1. Revise this following the ProgressUpdates.md template for better look and formatting - resolved
