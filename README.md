@@ -57,5 +57,3 @@ Our program lets multiple clients connect to a server to either create a review 
 https://www.youtube.com/watch?v=U17-wemQXIo&feature=youtu.be
 
 # Comments
-1. Need to revise this file following the format from the README.md template on Blackboard
-2. Expand the deliverables with more details on what features are going to be delivered
